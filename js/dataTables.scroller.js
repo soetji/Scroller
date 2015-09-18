@@ -58,7 +58,7 @@ var factory = function( $, DataTable ) {
  *  @constructor
  *  @global
  *  @param {object} dt DataTables settings object or API instance
- *  @param {object} [opts={}] Configuration object for FixedColumns. Options 
+ *  @param {object} [opts={}] Configuration object for FixedColumns. Options
  *    are defined by {@link Scroller.defaults}
  *
  *  @requires jQuery 1.7+
@@ -321,7 +321,7 @@ $.extend( Scroller.prototype, {
 	 *          o.oScroller.fnScrollToRow( 1000 );
 	 *        }
 	 *      } );
-	 *     
+	 *
 	 *      // Sometime later on use the following to scroll to row 500...
 	 *          var oSettings = $('#example').dataTable().fnSettings();
 	 *      oSettings.oScroller.fnScrollToRow( 500 );
@@ -391,7 +391,7 @@ $.extend( Scroller.prototype, {
 	 *          o.oScroller.fnScrollToRow( 1000 );
 	 *        }
 	 *      } );
-	 *     
+	 *
 	 *      setTimeout( function () {
 	 *        // Make the example container visible and recalculate the scroller sizes
 	 *        document.getElementById('container').style.display = "block";
@@ -675,7 +675,7 @@ $.extend( Scroller.prototype, {
 	 * had scrolling containers of infinite height (i.e. the absolute value)
 	 *
 	 *  @param {string} dir Domain transform direction, `virtualToPhysical` or
-	 *    `physicalToVirtual` 
+	 *    `physicalToVirtual`
 	 *  @returns {number} Calculated transform
 	 *  @private
 	 */
@@ -866,7 +866,7 @@ $.extend( Scroller.prototype, {
 		var heights = this.s.heights;
 		var max = 1000000;
 
-		heights.virtual = heights.row * this.s.dt.fnRecordsDisplay();
+		heights.virtual = $(this.dom.table).outerHeight();
 		heights.scroll = heights.virtual;
 
 		if ( heights.scroll > max ) {
@@ -1173,7 +1173,7 @@ if ( typeof $.fn.dataTable == "function" &&
 		"fnInit": function( oDTSettings ) {
 			var init = oDTSettings.oInit;
 			var opts = init.scroller || init.oScroller || {};
-			
+
 			new Scroller( oDTSettings, opts );
 		},
 		"cFeature": "S",
@@ -1295,4 +1295,3 @@ else if ( jQuery && !jQuery.fn.dataTable.Scroller ) {
 
 
 })(window, document);
-
